@@ -2,6 +2,12 @@ const noteInput = document.getElementById("note");
 const saveBtn = document.getElementById("saveBtn");
 const notesList = document.getElementById("notesList");
 
+// service-worker.js
+self.addEventListener("install", () => {
+  console.log("Service Worker instalado");
+});
+
+
 // Carregar notas do localStorage
 function loadNotes() {
   const notes = JSON.parse(localStorage.getItem("notes")) || [];
