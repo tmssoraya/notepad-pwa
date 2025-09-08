@@ -46,7 +46,6 @@ button {
 
 button:hover {
   background: #ebafd7;
-   button-shadow: 10px 5px 5px black;
 }
 
 ul {
