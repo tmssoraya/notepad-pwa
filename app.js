@@ -1,14 +1,13 @@
+//pegando os elementos do HTML para usar no JS
 const noteInput = document.getElementById("note");
 const saveBtn = document.getElementById("saveBtn");
 const notesList = document.getElementById("notesList");
 
-// service-worker.js
+// service worker
 self.addEventListener("install", () => {
   console.log("Service Worker instalado");
 });
 
-
-// Carregar notas do localStorage
 function loadNotes() {
   const notes = JSON.parse(localStorage.getItem("notes")) || [];
   notesList.innerHTML = "";
@@ -16,7 +15,7 @@ function loadNotes() {
     const li = document.createElement("li");
     li.textContent = note;
 
-    // Botão de excluir
+   //botao de excluir
     const delBtn = document.createElement("button");
     delBtn.textContent = "❌";
     delBtn.style.float = "right";
@@ -27,7 +26,7 @@ function loadNotes() {
   });
 }
 
-// Salvar nova nota
+//salvar nota
 saveBtn.addEventListener("click", () => {
   const note = noteInput.value.trim();
   if (note) {
@@ -39,7 +38,7 @@ saveBtn.addEventListener("click", () => {
   }
 });
 
-// Excluir nota
+//excluir nota
 function deleteNote(index) {
   const notes = JSON.parse(localStorage.getItem("notes")) || [];
   notes.splice(index, 1);
