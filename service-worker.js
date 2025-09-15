@@ -9,14 +9,14 @@ const FILES_TO_CACHE = [
   "/icons/icon-512.png"
 ];
 
-// Instalação
+//instalação
 self.addEventListener("install", event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => cache.addAll(FILES_TO_CACHE))
   );
 });
 
-// Ativação
+//ativação
 self.addEventListener("activate", event => {
   event.waitUntil(
     caches.keys().then(keys =>
@@ -25,7 +25,7 @@ self.addEventListener("activate", event => {
   );
 });
 
-// Fetch para funcionar offline
+//fetch para funcionar offline
 self.addEventListener("fetch", event => {
   event.respondWith(
     caches.match(event.request).then(response => response || fetch(event.request))
