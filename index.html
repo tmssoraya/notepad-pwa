@@ -16,16 +16,19 @@
   </header>
 
   <main>
+    //area para escrever a nota
     <textarea id="note" placeholder="Escreva sua nota aqui..."></textarea>
+    //botão para salvar
     <button id="saveBtn">💾 Salvar Nota</button>
 
     <h2>Notas Salvas</h2>
+    //lista onde as notas vão aparecer
     <ul id="notesList"></ul>
   </main>
 
   <script src="app.js"></script>
   <script>
-    // Registro do service worker
+    // registro do service worker
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js');
     }
